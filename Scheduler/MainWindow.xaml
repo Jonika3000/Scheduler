@@ -1,0 +1,62 @@
+﻿<Window x:Class="Scheduler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scheduler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1200"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Button.xaml"/>
+                <ResourceDictionary Source="Styles/RadioButton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1" MouseDown="Grid_MouseDown">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center">
+                <Button Content="–"
+                        Style="{DynamicResource Window}"
+                        Click="Button_Clicl_Minimize"
+                        />
+                <Button Content="☐"
+                        Style="{DynamicResource Window}"
+                        Click="Button_Click_Max"
+                         />
+                <Button Content="x"
+                        Style="{DynamicResource Window}"
+                        Click="Button_Click_Stop"
+                        />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Image Source="Resources/icons8_Lion_512px.png" Width="50"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Style="{DynamicResource ButtonHome}"/>
+                </StackPanel> 
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
