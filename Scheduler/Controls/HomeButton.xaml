@@ -38,8 +38,26 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Label Visibility="Hidden" Name="Line" Background="Bisque" Width="20" HorizontalAlignment="Left"/>
-        <RadioButton Name="RadioBtn" Margin="25 " Style="{DynamicResource ButtonHome}" Checked="RadioButton_Checked"
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Resources/icons8_square_480px_2.png"
+               Height="50" Width="10" Stretch="Fill"
+               HorizontalAlignment="Left"
+               Margin="10,0,0,0" Name="Line"
+               Visibility="Visible"/>
+                <RadioButton Name="RadioBtn" Margin="30,0,0,0"  Style="{DynamicResource ButtonHome}" Checked="RadioButton_Checked"
                      Unchecked="RadioBtn_Unchecked"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Resources/icons8_square_480px_2.png"
+               Height="50" Width="10" Stretch="Fill"
+               HorizontalAlignment="Left"
+               Margin="10,0,0,0" Name="Line1"
+               Visibility="Visible"/>
+                <RadioButton Name="RadioBtn1" Margin="30,0,0,0"  Style="{DynamicResource ButtonHome}" Checked="RadioButton_Checked"
+                     Unchecked="RadioBtn_Unchecked"/>
+            </StackPanel>
+        </StackPanel>
+       
     </Grid>
 </UserControl>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Scheduler
+namespace Scheduler.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для UserControl1.xaml
+    /// Логика взаимодействия для HomePage.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class HomePage : Page
     {
-        public UserControl1()
+        public HomePage()
         {
             InitializeComponent();
         }

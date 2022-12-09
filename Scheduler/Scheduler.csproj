@@ -8,19 +8,85 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\BtnHomeSelect.png" />
+    <None Remove="Resources\BtnSettingsSelect.png" />
+    <None Remove="Resources\ButtonCalendarSelected.png" />
+    <None Remove="Resources\ButtonClockSelected.png" />
+    <None Remove="Resources\ButtonLogOutSelected.png" />
+    <None Remove="Resources\icons8_clock_512px.png" />
+    <None Remove="Resources\icons8_clock_512px_1.png" />
     <None Remove="Resources\icons8_home_480px.png" />
     <None Remove="Resources\icons8_home_480px_5.png" />
+    <None Remove="Resources\icons8_house_lannister_480px.png" />
     <None Remove="Resources\icons8_Lion_512px.png" />
+    <None Remove="Resources\icons8_logout_480px.png" />
+    <None Remove="Resources\icons8_logout_480px_1.png" />
+    <None Remove="Resources\icons8_rescheduling_a_task_480px_1.png" />
+    <None Remove="Resources\icons8_rescheduling_a_task_480px_2.png" />
+    <None Remove="Resources\icons8_settings_512px.png" />
+    <None Remove="Resources\icons8_settings_512px_1.png" />
+    <None Remove="Resources\icons8_square_480px_2.png" />
+    <None Remove="Resources\icons8_square_512px.png" />
+    <None Remove="Resources\test.png" />
+    <None Remove="Resources\test1.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\BtnHomeSelect.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\BtnSettingsSelect.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\ButtonCalendarSelected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\ButtonClockSelected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\ButtonLogOutSelected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_clock_512px.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_clock_512px_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\icons8_home_480px.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icons8_home_480px_5.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\icons8_house_lannister_480px.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\icons8_Lion_512px.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_logout_480px.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_logout_480px_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_rescheduling_a_task_480px_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_rescheduling_a_task_480px_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_settings_512px.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_settings_512px_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_square_480px_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_square_512px.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -27,6 +27,13 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Background="#FF3959CB">
+            <TextBlock Text="Scheduler"
+                       Foreground="White"
+                       FontSize="15"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom"/>
+        </Grid>
         <Grid Grid.Row="0" Grid.Column="1" MouseDown="Grid_MouseDown">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Right"
@@ -45,19 +52,28 @@
                         />
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0">
+        <Grid Grid.Row="1" Grid.Column="0" Background="#FF3959CB">
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="150"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Image Source="Resources/icons8_Lion_512px.png" Width="50"/>
+                <Image Margin="-5,10,10,10" VerticalAlignment="Top" Source="Resources/icons8_house_lannister_480px.png" Width="70"/>
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Vertical">
-                    <uc:HomeButton />
+                    <RadioButton Style="{DynamicResource ButtonHome}"/>
+                    <RadioButton Style="{DynamicResource ButtonClock}"/>
+                    <RadioButton Style="{DynamicResource ButtonCalendar}"/>
+                    <RadioButton Style="{DynamicResource ButtonSettings}"/>
+                    <RadioButton Style="{DynamicResource ButtonLogOut}"/> 
                 </StackPanel> 
             </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Frame Name="Container"
+                   NavigationUIVisibility="Hidden"
+                    Margin="20"/>
         </Grid>
     </Grid>
 </Window>
