@@ -6,9 +6,54 @@
       xmlns:local="clr-namespace:Scheduler.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage">
+      Title="HomePage" Background="White">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Border Background="#FF3959CB"
+                        Margin="20"
+                        CornerRadius="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <StackPanel Orientation="Vertical"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock FontWeight="Light"
+                                       FontSize="20"
+                                       Text="Hello, again!"
+                                       Foreground="White"
+                                           Margin="10"/>
+                                <TextBlock FontWeight="Light"
+                                       FontSize="14"
+                                       TextWrapping="Wrap"
+                                       Text="Welcome to your daily event calendar. Here you can see all the upcoming events and create new events."
+                                       Foreground="White"/>
+                            </StackPanel>
+                           
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Image Width="100" Source="/Resources/Metrics-amico.png"/>
+                        </Grid>
+                    </Grid> 
+                </Border>
+            </Grid>
+            <Grid Grid.Row="1">
+                
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

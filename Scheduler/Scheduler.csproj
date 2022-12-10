@@ -27,6 +27,7 @@
     <None Remove="Resources\icons8_settings_512px_1.png" />
     <None Remove="Resources\icons8_square_480px_2.png" />
     <None Remove="Resources\icons8_square_512px.png" />
+    <None Remove="Resources\Metrics-amico.png" />
     <None Remove="Resources\test.png" />
     <None Remove="Resources\test1.png" />
   </ItemGroup>
@@ -62,9 +63,6 @@
     <Resource Include="Resources\icons8_house_lannister_480px.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\icons8_Lion_512px.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\icons8_logout_480px.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -87,6 +85,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icons8_square_512px.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Metrics-amico.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

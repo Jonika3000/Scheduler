@@ -13,27 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Scheduler.Controls
+namespace Scheduler.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для HomeButton.xaml
+    /// Логика взаимодействия для AddEventPage.xaml
     /// </summary>
-    public partial class HomeButton : UserControl
+    public partial class AddEventPage : Page
     {
-        public HomeButton()
+        public AddEventPage()
         {
             InitializeComponent();
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            Line.Visibility = Visibility.Visible;
-           
-        }
-
-        private void RadioBtn_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Line.Visibility = Visibility.Hidden;
         }
     }
 }

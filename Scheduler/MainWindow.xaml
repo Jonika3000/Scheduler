@@ -58,7 +58,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Image Margin="-5,10,10,10" VerticalAlignment="Top" Source="Resources/icons8_house_lannister_480px.png" Width="70"/>
+                <Image Margin="-5,10,10,10" VerticalAlignment="Top" Source="Resources/icons8_house_lannister_480px.png" Width="60"/>
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Vertical">
