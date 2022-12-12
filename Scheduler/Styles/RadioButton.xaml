@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style TargetType="RadioButton" x:Key="ButtonHome">
         <Setter Property="Width" Value="60"/>
-        <Setter Property="Height" Value="60"/> 
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
@@ -35,6 +36,7 @@
     <Style TargetType="RadioButton" x:Key="ButtonSettings">
         <Setter Property="Width" Value="60"/>
         <Setter Property="Height" Value="60"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
@@ -67,6 +69,7 @@
     <Style TargetType="RadioButton" x:Key="ButtonLogOut">
         <Setter Property="Width" Value="60"/>
         <Setter Property="Height" Value="60"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
@@ -98,6 +101,7 @@
     </Style>
     <Style TargetType="RadioButton" x:Key="ButtonClock">
         <Setter Property="Width" Value="60"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Height" Value="60"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -130,6 +134,7 @@
     </Style>
     <Style TargetType="RadioButton" x:Key="ButtonCalendar">
         <Setter Property="Width" Value="60"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Height" Value="60"/>
         <Setter Property="Template">
             <Setter.Value>

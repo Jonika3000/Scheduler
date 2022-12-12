@@ -62,8 +62,12 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Vertical">
-                    <RadioButton Style="{DynamicResource ButtonHome}"/>
-                    <RadioButton Style="{DynamicResource ButtonClock}"/>
+                    <RadioButton Name="RButtonHome"
+                                 Checked="RButtonHome_Checked"
+                        Style="{DynamicResource ButtonHome}"/>
+                    <RadioButton Name="RButtonClock"
+                                 Checked="RButtonClock_Checked"
+                        Style="{DynamicResource ButtonClock}"/>
                     <RadioButton Style="{DynamicResource ButtonCalendar}"/>
                     <RadioButton Style="{DynamicResource ButtonSettings}"/>
                     <RadioButton Style="{DynamicResource ButtonLogOut}"/> 
@@ -73,7 +77,8 @@
         <Grid Grid.Row="1" Grid.Column="1">
             <Frame Name="Container"
                    NavigationUIVisibility="Hidden"
-                    Margin="20"/>
+                    Margin="20"
+                   BorderThickness="0"/>
         </Grid>
     </Grid>
 </Window>

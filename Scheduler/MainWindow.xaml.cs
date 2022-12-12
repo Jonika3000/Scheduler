@@ -37,5 +37,15 @@ namespace Scheduler
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
+        private void RButtonHome_Checked(object sender, RoutedEventArgs e)
+        {
+            Container.Navigate(new HomePage());
+        }
+
+        private void RButtonClock_Checked(object sender, RoutedEventArgs e)
+        {
+            Container.Navigate(new AddEventPage());
+        }
     }
 }

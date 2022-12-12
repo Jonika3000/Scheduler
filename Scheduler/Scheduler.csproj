@@ -33,6 +33,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="HandyControls" Version="3.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\BtnHomeSelect.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
