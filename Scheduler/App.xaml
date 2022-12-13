@@ -4,12 +4,14 @@
              xmlns:local="clr-namespace:Scheduler"
              StartupUri="MainWindow.xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol">
-    <Application.Resources>
+    <Application.Resources> 
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary.MergedDictionaries> 
                 <hc:ThemeResources/>
                 <hc:Theme/>
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+            <Color x:Key="BlueMain">#FF3959CB</Color>
+            <SolidColorBrush x:Key="MainColor" Color="{StaticResource BlueMain}" />
+        </ResourceDictionary> 
     </Application.Resources>
 </Application>

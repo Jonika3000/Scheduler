@@ -35,24 +35,28 @@
                      FontSize="20"
                     Height="30"
                      BorderBrush="Gray"
-                     Name="EventName">
+                     Name="TextBoxEventName">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <hc:DatePicker
+            <hc:DateTimePicker
                 Margin="0,20"
-                Name="EventDate"
-                />
+                Height="30"
+                Name="PickerEventDate"
+                Background="{DynamicResource MainColor}"
+                Foreground="White"/>
             <Button Width="100"
                     Height="40"
-                    Background="#FF3959CB"
+                    Background="{DynamicResource MainColor}"
                     Foreground="White"
                     FontSize="20"
                     FontWeight="Light"
-                    BorderThickness="0">
+                    BorderThickness="0"
+                    Name="ButtonSave"
+                    Click="ButtonSave_Click">
                 <TextBlock Text="Save"/>
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -60,6 +64,14 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <TextBlock Name="TextBlockError"
+                       Foreground="#A00000"
+                       Text="Error"
+                       FontSize="30"
+                       FontWeight="Light"
+                       HorizontalAlignment="Center"
+                       Margin="0,28"
+                       Visibility="Hidden"/>
         </StackPanel>
     </Grid>
 </Page>

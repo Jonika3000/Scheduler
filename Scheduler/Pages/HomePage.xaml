@@ -20,7 +20,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Border Background="#FF3959CB"
+                <Border Background="{DynamicResource MainColor}"
                         Margin="20"
                         CornerRadius="20">
                     <Grid>

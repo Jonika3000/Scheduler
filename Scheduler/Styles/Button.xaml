@@ -5,7 +5,7 @@
         <Setter Property="Width" Value="30"/>
         <Setter Property="FontSize" Value="19"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Foreground" Value="#FF3959CB"/>
+        <Setter Property="Foreground" Value="{DynamicResource MainColor}"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Padding" Value="15"/>

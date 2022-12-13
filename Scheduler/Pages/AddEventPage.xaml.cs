@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Scheduler.Pages
 {
@@ -23,6 +11,28 @@ namespace Scheduler.Pages
         public AddEventPage()
         {
             InitializeComponent();
+            PickerEventDate.SelectedDateTime = System.DateTime.Now;
+        }
+
+        private void ButtonSave_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            CheckErrors();
+            var newEvent = new Event();
+            newEvent.name = TextBoxEventName.Text;
+            newEvent.dateTime = PickerEventDate.SelectedDateTime.Value;
+            ((MainWindow)Application.Current.MainWindow).events.Add(newEvent);
+        }
+        private void CheckErrors()
+        {
+            if (TextBoxEventName.Text == string.Empty)
+                ErrorString("The name field cannot be empty");
+            else if (PickerEventDate.SelectedDateTime == null)
+                ErrorString("Event date not selected");
+        }
+        private void ErrorString(string error)
+        {
+            TextBlockError.Text = error;
+            TextBlockError.Visibility = Visibility.Visible;
         }
     }
 }
