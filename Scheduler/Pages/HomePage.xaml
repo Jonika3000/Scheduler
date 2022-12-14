@@ -52,8 +52,15 @@
                 </Border>
             </Grid>
             <Grid Grid.Row="1">
-                
+
             </Grid>
+        </Grid>
+        <Grid Grid.Column="1" Background="#F1F1F1"> 
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <StackPanel Name="StackPanelEvents" Margin="10" Orientation="Vertical">
+                    
+                </StackPanel>
+            </ScrollViewer> 
         </Grid>
     </Grid>
 </Page>

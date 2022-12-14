@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Scheduler.Pages
@@ -21,6 +22,8 @@ namespace Scheduler.Pages
             newEvent.name = TextBoxEventName.Text;
             newEvent.dateTime = PickerEventDate.SelectedDateTime.Value;
             ((MainWindow)Application.Current.MainWindow).events.Add(newEvent);
+            ((MainWindow)Application.Current.MainWindow).events =
+                ((MainWindow)Application.Current.MainWindow).events.OrderBy(x => x.dateTime).ToList();
         }
         private void CheckErrors()
         {
