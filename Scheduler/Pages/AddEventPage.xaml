@@ -47,7 +47,8 @@
                 Height="30"
                 Name="PickerEventDate"
                 Background="{DynamicResource MainColor}"
-                Foreground="White"/>
+                Foreground="White"
+                />
             <Button Width="100"
                     Height="40"
                     Background="{DynamicResource MainColor}"

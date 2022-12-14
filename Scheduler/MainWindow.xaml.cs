@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Scheduler.Pages;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
-using System.Windows.Documents;
 using System.Windows.Input;
-using Scheduler.Pages;
 
 
 namespace Scheduler
@@ -15,7 +13,7 @@ namespace Scheduler
     /// </summary>
     public partial class MainWindow : Window
     {
-       public List<Event> events = new List<Event>();
+        public List<Event> events = new List<Event>();
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +35,7 @@ namespace Scheduler
 
         private void Button_Click_Stop(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown(); 
+            Application.Current.Shutdown();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -57,16 +55,24 @@ namespace Scheduler
         }
         private void LoadEvents()
         {
-            using (FileStream fs = new FileStream("events.json", FileMode.Open))
+            try
             {
-                events = JsonSerializer.Deserialize<List<Event>>(fs); 
+                using (FileStream fs = new FileStream("events.json", FileMode.OpenOrCreate))
+                {
+                    events = JsonSerializer.Deserialize<List<Event>>(fs);
+                }
             }
+            catch
+            {
+
+            }
+
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             using (FileStream fs = new FileStream("events.json", FileMode.Create))
             {
-                JsonSerializer.Serialize<List<Event>>(fs, events); 
+                JsonSerializer.Serialize<List<Event>>(fs, events);
             }
         }
     }
