@@ -1,5 +1,4 @@
-﻿using HandyControl.Controls;
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,13 +12,14 @@ namespace Scheduler.Pages
     {
         public AddEventPage()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             PickerEventDate.SelectedDateTime = System.DateTime.Today;
         }
 
         private void ButtonSave_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            CheckErrors();
+            if (!CheckErrors())
+                return;
             var newEvent = new Event();
             newEvent.name = TextBoxEventName.Text;
             newEvent.dateTime = PickerEventDate.SelectedDateTime.Value;
@@ -33,20 +33,30 @@ namespace Scheduler.Pages
             TextBoxEventName.Text = string.Empty;
             PickerEventDate.SelectedDateTime = DateTime.Today;
         }
-        private void CheckErrors()
+        private bool CheckErrors()
         {
             if (TextBoxEventName.Text == string.Empty)
+            {
                 ErrorString("The name field cannot be empty");
+                return false;
+            }
             else if (PickerEventDate.SelectedDateTime == null)
+            {
                 ErrorString("Event date not selected");
-            else if(PickerEventDate.SelectedDateTime.Value.Date<DateTime.Now)
+                return false;
+            }
+            else if (PickerEventDate.SelectedDateTime.Value.Date < DateTime.Now)
+            {
                 ErrorString("Can't put past date");
-            Clear();
+                return false;
+            }
+            return true;
         }
         private void ErrorString(string error)
         {
             TextBlockError.Text = error;
             TextBlockError.Visibility = Visibility.Visible;
+            Clear();
         }
     }
 }

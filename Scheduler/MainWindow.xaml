@@ -38,7 +38,8 @@
         <Grid Grid.Row="0" Grid.Column="1" MouseDown="Grid_MouseDown">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Right"
-                        VerticalAlignment="Center">
+                        VerticalAlignment="Center"
+                        Width="90">
                 <Button Content="–"
                         Style="{DynamicResource Window}"
                         Click="Button_Clicl_Minimize"

@@ -16,40 +16,45 @@
         </ResourceDictionary>
     </Page.Resources>
     <Grid>
-        <StackPanel Orientation="Vertical"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="340"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Center"
                     Margin="20">
-            <TextBlock Text="Add event"
+                <TextBlock Text="Add event"
                        Foreground="#252525"
                        FontSize="50"
                        FontWeight="Light"
                        HorizontalAlignment="Center"/>
-            <TextBlock Text="Event name:"
+                <TextBlock Text="Event name:"
                        Margin="0,20"
                        Foreground="#252525"
                        FontSize="30"
                        FontWeight="Light"
                        />
-            <TextBox Style="{DynamicResource BlueBorder}"
+                <TextBox Style="{DynamicResource BlueBorder}"
                      Width="300"
                      FontSize="20"
                     Height="30"
                      BorderBrush="Gray"
                      Name="TextBoxEventName">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-            <hc:DateTimePicker
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <hc:DateTimePicker
                 Margin="0,20"
                 Height="30"
                 Name="PickerEventDate"
                 Background="{DynamicResource MainColor}"
                 Foreground="White"
                 />
-            <Button Width="100"
+                <Button Width="100"
                     Height="40"
                     Background="{DynamicResource MainColor}"
                     Foreground="White"
@@ -57,14 +62,19 @@
                     FontWeight="Light"
                     BorderThickness="0"
                     Name="ButtonSave"
-                    Click="ButtonSave_Click">
-                <TextBlock Text="Save"/>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+                    Click="ButtonSave_Click"
+                    Cursor="Hand">
+                    <TextBlock Text="Save"/>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
             <TextBlock Name="TextBlockError"
                        Foreground="#A00000"
                        Text="Error"
@@ -72,7 +82,9 @@
                        FontWeight="Light"
                        HorizontalAlignment="Center"
                        Margin="0,28"
-                       Visibility="Hidden"/>
-        </StackPanel>
+                       Visibility="Hidden"
+                        />
+        </Grid>
+        
     </Grid>
 </Page>
