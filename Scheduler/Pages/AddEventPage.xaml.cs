@@ -24,6 +24,7 @@ namespace Scheduler.Pages
             newEvent.name = TextBoxEventName.Text;
             newEvent.dateTime = PickerEventDate.SelectedDateTime.Value;
             ((MainWindow)Application.Current.MainWindow).events.Add(newEvent);
+            ((MainWindow)Application.Current.MainWindow).CreateListToday();
             ((MainWindow)Application.Current.MainWindow).events =
                 ((MainWindow)Application.Current.MainWindow).events.OrderBy(x => x.dateTime).ToList();
             Clear();
@@ -45,7 +46,7 @@ namespace Scheduler.Pages
                 ErrorString("Event date not selected");
                 return false;
             }
-            else if (PickerEventDate.SelectedDateTime.Value.Date < DateTime.Now)
+            else if (PickerEventDate.SelectedDateTime.Value.Date < DateTime.Today)
             {
                 ErrorString("Can't put past date");
                 return false;

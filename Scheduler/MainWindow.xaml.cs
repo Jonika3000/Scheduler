@@ -1,10 +1,15 @@
-﻿using Scheduler.Pages;
+﻿using Notification.Wpf;
+using Notification.Wpf.Classes;
+using Scheduler.Pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
-
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace Scheduler
 {
@@ -14,11 +19,63 @@ namespace Scheduler
     public partial class MainWindow : Window
     {
         public List<Event> events = new List<Event>();
+        public List<Event> eventsToday = new List<Event>();
+
         public MainWindow()
         {
             InitializeComponent();
             LoadEvents();
+            CreateListToday();
+            clearEventsOverdue();
             Container.Navigate(new HomePage());
+            var timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromHours(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            var timerNotification = new DispatcherTimer();
+            timerNotification.Interval = TimeSpan.FromMinutes(1);
+            timerNotification.Tick += TimerNotification_Tick;
+            timerNotification.Start();
+        }
+
+        private void TimerNotification_Tick(object? sender, EventArgs e)
+        {
+            foreach (var ev in eventsToday)
+            {
+                if (ev.dateTime.Hour == DateTime.Now.Hour && ev.dateTime.Minute == DateTime.Now.Minute)
+                {
+                    ShowNotification(ev);
+                }
+            }
+        }
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            CreateListToday();
+        }
+
+        public void CreateListToday()
+        {
+            eventsToday.Clear();
+            foreach (var e in events)
+            {
+                if (e.dateTime.Date == DateTime.Today.Date)
+                {
+                    eventsToday.Add(e);
+
+                }
+            }
+        }
+        private void clearEventsOverdue()
+        {
+            foreach (var e in events)
+            {
+                if (e.dateTime < DateTime.Now)
+                {
+                    events.Remove(e);
+                }
+            }
         }
         private void Button_Clicl_Minimize(object sender, RoutedEventArgs e)
         {
@@ -74,6 +131,44 @@ namespace Scheduler
             {
                 JsonSerializer.Serialize<List<Event>>(fs, events);
             }
+        }
+        private void ShowNotification(Event e)
+        {
+            var notificationManager = new NotificationManager();
+            var content = new NotificationContent
+            {
+                Title = "Reminder",
+                Message = e.name,
+                Type = NotificationType.Notification,
+                /*TrimType = NotificationTextTrimType.Attach, */// will show attach button on message
+                RowsCount = 4, //Will show 3 rows and trim after
+                //LeftButtonAction = () => SomeAction(), //Action on left button click, button will not show if it null 
+                //RightButtonAction = () => SomeAction(), //Action on right button click,  button will not show if it null
+                //LeftButtonContent, // Left button content (string or what u want
+                //RightButtonContent, // Right button content (string or what u want
+                CloseOnClick = true, // Set true if u want close message when left mouse button click on message (base = true) 
+                Background = new SolidColorBrush(Colors.White),
+                Foreground = new SolidColorBrush(Colors.Blue),
+                 
+                //Icon = new SvgAwesome()
+                //{
+                //    Icon = EFontAwesomeIcon.Regular_Star,
+                //    Height = 25,
+                //    Foreground = new SolidColorBrush(Colors.Yellow)
+                //},
+
+                Image = new NotificationImage()
+                {
+                    Source = new BitmapImage(new Uri("Resources\\icons8_house_lannister_480px.png", UriKind.RelativeOrAbsolute)),
+                    Position = ImagePosition.Top
+                }
+
+            };
+            var mediaPlayer = new MediaPlayer();
+            mediaPlayer.Open(new Uri("Sounds\\NotificationSound.wav", UriKind.RelativeOrAbsolute));
+            notificationManager.Show(content); 
+            mediaPlayer.Play();
+
         }
     }
 }
