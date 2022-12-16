@@ -7,6 +7,7 @@ using System.IO;
 using System.Media;
 using System.Text.Json;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -48,6 +49,8 @@ namespace Scheduler
                 {
                     ShowNotification(ev);
                 }
+                if (eventsToday.Count == 0)
+                    break;
             }
         }
 
@@ -75,9 +78,10 @@ namespace Scheduler
                 if (e.dateTime < DateTime.Now)
                 {
                     events.Remove(e);
-                    if (events.Count == 0)
-                        break;
+                    
                 }
+                if (events.Count == 0)
+                    break;
             }
         }
         private void Button_Clicl_Minimize(object sender, RoutedEventArgs e)
@@ -174,6 +178,19 @@ namespace Scheduler
             player.SoundLocation = projectDirectory + "\\Sounds\\NotificationSound.wav";
             player.PlaySync(); 
             clearEventsOverdue();
+            CreateListToday();
+            UpdatePageHome();
+
         } 
+        private void UpdatePageHome()
+        {
+            if (Container.Content != null)
+            {
+                if ((Container.Content as Page).Title == "HomePage")
+                {
+                    Container.Navigate(new HomePage());
+                }
+            }
+        }
     }
 }
