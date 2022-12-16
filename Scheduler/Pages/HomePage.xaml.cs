@@ -43,6 +43,7 @@ namespace Scheduler.Pages
                     StackPanelEvents.Children.Add(CreateTxtBlock(lstEv[i])); 
                 }
                 var newControl = new EventControl();
+                newControl.Margin = new Thickness(0, 10, 0, 0);
                 newControl.EventName.Text = lstEv[i].name;
                 newControl.EventTime.Text = lstEv[i].dateTime.ToString("h:mm tt");
                 StackPanelEvents.Children.Add(newControl);
