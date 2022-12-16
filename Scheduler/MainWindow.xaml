@@ -20,6 +20,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition />
@@ -34,6 +35,12 @@
                        FontSize="15"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Bottom"/>
+            <MediaElement Name="MediaNotification" 
+                          Volume="100"
+                          LoadedBehavior="Manual" 
+                          UnloadedBehavior="Manual"  >
+
+            </MediaElement>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1" MouseDown="Grid_MouseDown">
             <StackPanel Orientation="Horizontal" 

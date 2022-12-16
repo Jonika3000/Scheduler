@@ -27,8 +27,9 @@ namespace Scheduler.Pages
                 StackPanelEvents.Children.Add(txtBlock);
             } 
         }
-        private void LoadEvents()
+        public void LoadEvents()
         {
+            StackPanelEvents.Children.Clear();
             var lstEv = ((MainWindow)Application.Current.MainWindow).events;
             for(int i = 0; i < lstEv.Count; i++)
             { 

@@ -4,6 +4,7 @@ using Scheduler.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Media;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
@@ -74,6 +75,8 @@ namespace Scheduler
                 if (e.dateTime < DateTime.Now)
                 {
                     events.Remove(e);
+                    if (events.Count == 0)
+                        break;
                 }
             }
         }
@@ -147,8 +150,8 @@ namespace Scheduler
                 //LeftButtonContent, // Left button content (string or what u want
                 //RightButtonContent, // Right button content (string or what u want
                 CloseOnClick = true, // Set true if u want close message when left mouse button click on message (base = true) 
-                Background = new SolidColorBrush(Colors.White),
-                Foreground = new SolidColorBrush(Colors.Blue),
+                Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FF3959CB"),
+                Foreground = new SolidColorBrush(Colors.White),
                  
                 //Icon = new SvgAwesome()
                 //{
@@ -163,12 +166,14 @@ namespace Scheduler
                     Position = ImagePosition.Top
                 }
 
-            };
-            var mediaPlayer = new MediaPlayer();
-            mediaPlayer.Open(new Uri("Sounds\\NotificationSound.wav", UriKind.RelativeOrAbsolute));
-            notificationManager.Show(content); 
-            mediaPlayer.Play();
-
-        }
+            }; 
+            notificationManager.Show(content);
+            SoundPlayer player = new SoundPlayer();
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+            player.SoundLocation = projectDirectory + "\\Sounds\\NotificationSound.wav";
+            player.PlaySync(); 
+            clearEventsOverdue();
+        } 
     }
 }
