@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Scheduler.Controls
@@ -9,33 +12,41 @@ namespace Scheduler.Controls
     /// </summary>
     public partial class EventControl : UserControl
     {
-        public EventControl()
+        List<string> colors = new List<string> { "#C19EBB" , "#9EB5C1" , "#C19E9E", "#73C15A", "#C15A5A",
+        "#C18D5A", "#5AC191", "#5AC1BC"};
+        public EventControl(string Tag)
         {
             InitializeComponent();
             SetRandomColor();
+            MainBorder.Tag = Tag;
         }
         private void SetRandomColor()
         {
             var bc = new BrushConverter();
-            var rnd = new Random().Next(0, 4);
-            switch (rnd)
-            {
-                case 0:
-                    MainBorder.Background = (Brush)bc.ConvertFrom("#F6BC7B");
-                    break;
-                case 1:
-                    MainBorder.Background = (Brush)bc.ConvertFrom("#F6F67B");
-                    break;
-                case 2:
-                    MainBorder.Background = (Brush)bc.ConvertFrom("#7BF68C");
-                    break;
-                case 3:
-                    MainBorder.Background = (Brush)bc.ConvertFrom("#CD7BF6");
-                    break;
-                case 4:
-                    MainBorder.Background = (Brush)bc.ConvertFrom("#7BC6F6");
-                    break;
-            }
+            MainBorder.Background = (Brush)bc.ConvertFrom(colors[new Random().Next(colors.Count)]); 
+        }
+
+        private void StackPanel_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var b = sender as Border;
+            b.ContextMenu.Items.Clear();
+
+            MenuItem newQuery = new MenuItem();
+            newQuery.Header = "Remove";
+            newQuery.Cursor = Cursors.Hand;
+            newQuery.Click += NewQuery_Click; 
+
+            b.ContextMenu.Items.Add(newQuery);
+
+            //if (b.ContextMenu.Style == null)
+            //    b.ContextMenu.Style = (Style)(((MainWindow)Application.Current.MainWindow)).FindResource("ContextMenuStyle") as Style;
+
+            b.ContextMenu.IsOpen = true;
+        }
+
+        private void NewQuery_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).RemoveEvent(MainBorder.Tag.ToString(), EventName.Text);
         }
     }
 }

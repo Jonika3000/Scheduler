@@ -5,8 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Scheduler.Pages"
       mc:Ignorable="d" 
+      xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+      xmlns:local1="clr-namespace:Scheduler"
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="HomePage" Background="White">
+      Title="HomePage" Background="White"
+      xmlns:hc="https://handyorg.github.io/handycontrol">
+   
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -58,7 +62,9 @@
                 </Border>
             </Grid>
             <Grid Grid.Row="1">
-
+                <hc:CalendarWithClock 
+                    
+                />
             </Grid>
         </Grid>
         <Grid Grid.Column="1">

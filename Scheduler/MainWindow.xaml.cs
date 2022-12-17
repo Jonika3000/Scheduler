@@ -4,6 +4,7 @@ using Scheduler.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Media;
 using System.Text.Json;
 using System.Windows;
@@ -182,6 +183,12 @@ namespace Scheduler
             UpdatePageHome();
 
         } 
+        public void RemoveEvent(string tagBorder,string nameEvent)
+        {
+            events.Remove(events.Where(e => e.dateTime.ToString("dddd, dd MMMM yyyy HH:mm:ss") == tagBorder &&
+            e.name == nameEvent).FirstOrDefault());
+            UpdatePageHome();
+        }
         private void UpdatePageHome()
         {
             if (Container.Content != null)

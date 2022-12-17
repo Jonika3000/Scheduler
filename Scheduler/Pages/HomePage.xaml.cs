@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Scheduler.Controls;
+using Syncfusion.UI.Xaml.Scheduler;
 
 namespace Scheduler.Pages
 {
@@ -14,7 +15,7 @@ namespace Scheduler.Pages
             InitializeComponent();
             StackPanelEvents.Children.Clear();
             LoadEvents();
-            NoEventsStackPanel();
+            NoEventsStackPanel(); 
         }
         private void NoEventsStackPanel()
         {
@@ -42,7 +43,7 @@ namespace Scheduler.Pages
                 {
                     StackPanelEvents.Children.Add(CreateTxtBlock(lstEv[i])); 
                 }
-                var newControl = new EventControl();
+                var newControl = new EventControl(lstEv[i].dateTime.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
                 newControl.Margin = new Thickness(0, 10, 0, 0);
                 newControl.EventName.Text = lstEv[i].name;
                 newControl.EventTime.Text = lstEv[i].dateTime.ToString("h:mm tt");

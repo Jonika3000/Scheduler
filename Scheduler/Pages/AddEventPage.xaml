@@ -63,8 +63,7 @@
                     FontWeight="Light"
                     BorderThickness="0"
                     Name="ButtonSave"
-                    Click="ButtonSave_Click"
-                    Cursor="Hand">
+                    Click="ButtonSave_Click" >
                     <TextBlock Text="Save"/>
                     <Button.Resources>
                         <Style TargetType="Border">

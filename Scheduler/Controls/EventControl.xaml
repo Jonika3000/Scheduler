@@ -9,9 +9,16 @@
     <Grid>
         <Border Background="#FF3959CB"
                 CornerRadius="10"
-                Name="MainBorder">
+                Name="MainBorder"
+                MouseRightButtonDown="StackPanel_MouseRightButtonDown">
+            <Border.ContextMenu>
+                <ContextMenu  Name="ContextMenuBorder"  
+                               >
+                </ContextMenu>
+            </Border.ContextMenu>
             <StackPanel Orientation="Vertical"
-                        Margin="10">
+                        Margin="10"
+                        >
                 <TextBlock Foreground="#252525"
                            Text="Coffe in cafe"
                            Name="EventName"
@@ -23,7 +30,7 @@
                            Name="EventTime"
                            Margin="0,10"
                            FontSize="15"
-                           FontWeight="Normal"/>
+                           FontWeight="Normal"/> 
             </StackPanel>
         </Border>
     </Grid>
