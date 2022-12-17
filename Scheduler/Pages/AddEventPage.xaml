@@ -42,7 +42,7 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <hc:DatePicker
+            <hc:DateTimePicker
                 Margin="0,20"
                 Name="EventDate"
                 />
@@ -51,6 +51,7 @@
                     Background="#FF3959CB"
                     Foreground="White"
                     FontSize="20"
+                    Cursor="Hand"
                     FontWeight="Light"
                     BorderThickness="0">
                 <TextBlock Text="Save"/>
