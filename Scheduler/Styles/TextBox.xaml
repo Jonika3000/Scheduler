@@ -15,7 +15,7 @@
                             <Setter Property="BorderBrush" TargetName="border" Value="black"/>
                         </Trigger>
                         <Trigger Property="IsFocused" Value="true">
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FF3959CB"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource MainColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

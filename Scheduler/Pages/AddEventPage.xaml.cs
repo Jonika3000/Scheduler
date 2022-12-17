@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Scheduler.Pages
 {
@@ -23,6 +13,51 @@ namespace Scheduler.Pages
         public AddEventPage()
         {
             InitializeComponent();
+            PickerEventDate.SelectedDateTime = System.DateTime.Today;
+        }
+
+        private void ButtonSave_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (!CheckErrors())
+                return;
+            var newEvent = new Event();
+            newEvent.name = TextBoxEventName.Text;
+            newEvent.dateTime = PickerEventDate.SelectedDateTime.Value;
+            ((MainWindow)Application.Current.MainWindow).events.Add(newEvent);
+            ((MainWindow)Application.Current.MainWindow).CreateListToday();
+            ((MainWindow)Application.Current.MainWindow).events =
+                ((MainWindow)Application.Current.MainWindow).events.OrderBy(x => x.dateTime).ToList();
+            Clear();
+        }
+        private void Clear()
+        {
+            TextBoxEventName.Text = string.Empty;
+            PickerEventDate.SelectedDateTime = DateTime.Today;
+        }
+        private bool CheckErrors()
+        {
+            if (TextBoxEventName.Text == string.Empty)
+            {
+                ErrorString("The name field cannot be empty");
+                return false;
+            }
+            else if (PickerEventDate.SelectedDateTime == null)
+            {
+                ErrorString("Event date not selected");
+                return false;
+            }
+            else if (PickerEventDate.SelectedDateTime.Value.Date < DateTime.Today)
+            {
+                ErrorString("Can't put past date");
+                return false;
+            }
+            return true;
+        }
+        private void ErrorString(string error)
+        {
+            TextBlockError.Text = error;
+            TextBlockError.Visibility = Visibility.Visible;
+            Clear();
         }
     }
 }

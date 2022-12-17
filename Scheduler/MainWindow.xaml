@@ -9,7 +9,8 @@
         Title="MainWindow" Height="700" Width="1200"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        Closing="Window_Closing">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,6 +20,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition />
@@ -27,17 +29,24 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Background="#FF3959CB">
+        <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource MainColor}">
             <TextBlock Text="Scheduler"
                        Foreground="White"
                        FontSize="15"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Bottom"/>
+            <MediaElement Name="MediaNotification" 
+                          Volume="100"
+                          LoadedBehavior="Manual" 
+                          UnloadedBehavior="Manual"  >
+
+            </MediaElement>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1" MouseDown="Grid_MouseDown">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Right"
-                        VerticalAlignment="Center">
+                        VerticalAlignment="Center"
+                        Width="90">
                 <Button Content="–"
                         Style="{DynamicResource Window}"
                         Click="Button_Clicl_Minimize"
@@ -52,7 +61,7 @@
                         />
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0" Background="#FF3959CB">
+        <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource MainColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
                 <RowDefinition/>

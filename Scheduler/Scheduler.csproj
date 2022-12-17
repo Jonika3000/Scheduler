@@ -30,10 +30,12 @@
     <None Remove="Resources\Metrics-amico.png" />
     <None Remove="Resources\test.png" />
     <None Remove="Resources\test1.png" />
+    <None Remove="Sounds\NotificationSound.wav" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="HandyControls" Version="3.4.4" />
+    <PackageReference Include="Notification.WPF" Version="6.1.0.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -92,6 +94,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Metrics-amico.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Sounds\NotificationSound.wav">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
