@@ -37,10 +37,7 @@ namespace Scheduler.Controls
             newQuery.Click += NewQuery_Click; 
 
             b.ContextMenu.Items.Add(newQuery);
-
-            //if (b.ContextMenu.Style == null)
-            //    b.ContextMenu.Style = (Style)(((MainWindow)Application.Current.MainWindow)).FindResource("ContextMenuStyle") as Style;
-
+             
             b.ContextMenu.IsOpen = true;
         }
 

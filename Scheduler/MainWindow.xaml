@@ -78,8 +78,13 @@
                                  Checked="RButtonClock_Checked"
                         Style="{DynamicResource ButtonClock}"/>
                     <RadioButton Style="{DynamicResource ButtonCalendar}"/>
-                    <RadioButton Style="{DynamicResource ButtonSettings}"/>
-                    <RadioButton Style="{DynamicResource ButtonLogOut}"/> 
+                    <RadioButton x:Name="ButtonSettings" 
+                                 Click="ButtonSettings_Click"
+                        Style="{DynamicResource ButtonSettings}"/>
+                    <RadioButton 
+                        Style="{DynamicResource ButtonLogOut}"
+                                 Name="RButtonExit"
+                                 Click="RButtonExit_Click"/> 
                 </StackPanel> 
             </Grid>
         </Grid>

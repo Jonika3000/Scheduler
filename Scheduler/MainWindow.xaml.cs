@@ -23,11 +23,12 @@ namespace Scheduler
     {
         public List<Event> events = new List<Event>();
         public List<Event> eventsToday = new List<Event>();
+        public string songPath;
 
         public MainWindow()
         {
             InitializeComponent();
-            LoadEvents();
+            LoadData();
             CreateListToday();
             clearEventsOverdue();
             Container.Navigate(new HomePage());
@@ -118,13 +119,21 @@ namespace Scheduler
         {
             Container.Navigate(new AddEventPage());
         }
-        private void LoadEvents()
+        private void LoadData()
         {
             try
             {
                 using (FileStream fs = new FileStream("events.json", FileMode.OpenOrCreate))
                 {
                     events = JsonSerializer.Deserialize<List<Event>>(fs);
+                }
+                using (FileStream fs = new FileStream("song.json", FileMode.OpenOrCreate))
+                {
+                    songPath = JsonSerializer.Deserialize<string>(fs);
+                }
+                if(songPath == string.Empty || songPath == null)
+                {
+                    songPath = "default";
                 }
             }
             catch
@@ -139,6 +148,10 @@ namespace Scheduler
             {
                 JsonSerializer.Serialize<List<Event>>(fs, events);
             }
+            using (FileStream fs = new FileStream("song.json", FileMode.Create))
+            {
+                JsonSerializer.Serialize<string>(fs, songPath);
+            }
         }
         private void ShowNotification(Event e)
         {
@@ -148,23 +161,10 @@ namespace Scheduler
                 Title = "Reminder",
                 Message = e.name,
                 Type = NotificationType.Notification,
-                /*TrimType = NotificationTextTrimType.Attach, */// will show attach button on message
-                RowsCount = 4, //Will show 3 rows and trim after
-                //LeftButtonAction = () => SomeAction(), //Action on left button click, button will not show if it null 
-                //RightButtonAction = () => SomeAction(), //Action on right button click,  button will not show if it null
-                //LeftButtonContent, // Left button content (string or what u want
-                //RightButtonContent, // Right button content (string or what u want
-                CloseOnClick = true, // Set true if u want close message when left mouse button click on message (base = true) 
+                 RowsCount = 4,  
+                 CloseOnClick = true,  
                 Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FF3959CB"),
-                Foreground = new SolidColorBrush(Colors.White),
-                 
-                //Icon = new SvgAwesome()
-                //{
-                //    Icon = EFontAwesomeIcon.Regular_Star,
-                //    Height = 25,
-                //    Foreground = new SolidColorBrush(Colors.Yellow)
-                //},
-
+                Foreground = new SolidColorBrush(Colors.White), 
                 Image = new NotificationImage()
                 {
                     Source = new BitmapImage(new Uri("Resources\\icons8_house_lannister_480px.png", UriKind.RelativeOrAbsolute)),
@@ -173,11 +173,19 @@ namespace Scheduler
 
             }; 
             notificationManager.Show(content);
-            SoundPlayer player = new SoundPlayer();
-            string workingDirectory = Environment.CurrentDirectory;
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            player.SoundLocation = projectDirectory + "\\Sounds\\NotificationSound.wav";
-            player.PlaySync(); 
+            SoundPlayer player = new SoundPlayer(); 
+            player.SoundLocation = songPath;
+            try
+            {
+                player.PlaySync();
+            } 
+            catch(Exception ex) 
+            {
+                string workingDirectory = Environment.CurrentDirectory;
+                string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+                player.SoundLocation = projectDirectory + "\\Sounds\\NotificationSound.wav";
+                player.PlaySync();
+            } 
             clearEventsOverdue();
             CreateListToday();
             UpdatePageHome();
@@ -198,6 +206,16 @@ namespace Scheduler
                     Container.Navigate(new HomePage());
                 }
             }
+        }
+
+        private void RButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Navigate(new SettingsPage());
         }
     }
 }

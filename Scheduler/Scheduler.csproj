@@ -15,6 +15,7 @@
     <None Remove="Resources\ButtonLogOutSelected.png" />
     <None Remove="Resources\icons8_clock_512px.png" />
     <None Remove="Resources\icons8_clock_512px_1.png" />
+    <None Remove="Resources\icons8_github_512px.png" />
     <None Remove="Resources\icons8_home_480px.png" />
     <None Remove="Resources\icons8_home_480px_5.png" />
     <None Remove="Resources\icons8_house_lannister_480px.png" />
@@ -36,7 +37,7 @@
   <ItemGroup>
     <PackageReference Include="HandyControls" Version="3.4.4" />
     <PackageReference Include="Notification.WPF" Version="6.1.0.4" />
-    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="20.3.0.61" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,6 +60,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icons8_clock_512px_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8_github_512px.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icons8_home_480px.png">

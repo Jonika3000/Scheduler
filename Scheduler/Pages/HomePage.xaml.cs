@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using Scheduler.Controls;
-using Syncfusion.UI.Xaml.Scheduler;
+using Scheduler.Controls; 
 
 namespace Scheduler.Pages
 {
