@@ -28,6 +28,7 @@
     <None Remove="Resources\icons8_settings_512px_1.png" />
     <None Remove="Resources\icons8_square_480px_2.png" />
     <None Remove="Resources\icons8_square_512px.png" />
+    <None Remove="Resources\mainIcon.ico" />
     <None Remove="Resources\Metrics-amico.png" />
     <None Remove="Resources\test.png" />
     <None Remove="Resources\test1.png" />
@@ -96,6 +97,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icons8_square_512px.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\mainIcon.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Metrics-amico.png">

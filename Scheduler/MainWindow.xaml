@@ -10,7 +10,8 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Closing="Window_Closing">
+        Closing="Window_Closing"
+        Icon="Resources/mainIcon.ico">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
