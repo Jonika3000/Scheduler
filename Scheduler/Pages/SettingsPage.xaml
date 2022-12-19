@@ -13,7 +13,7 @@
         <StackPanel Orientation="Vertical" 
                     Margin="20" HorizontalAlignment="Left">
             <TextBlock Text="Change nofitication song:"
-                   Foreground="{DynamicResource MainColor}"
+                   Foreground="#252525"
                    FontSize="25"
                    FontWeight="Light"/>
             

@@ -78,7 +78,9 @@
                     <RadioButton Name="RButtonClock"
                                  Checked="RButtonClock_Checked"
                         Style="{DynamicResource ButtonClock}"/>
-                    <RadioButton Style="{DynamicResource ButtonCalendar}"/>
+                    <RadioButton x:Name="RButtonNothing"
+                                 Checked="RButtonNothing_Checked"
+                        Style="{DynamicResource ButtonCalendar}"/>
                     <RadioButton x:Name="ButtonSettings" 
                                  Click="ButtonSettings_Click"
                         Style="{DynamicResource ButtonSettings}"/>

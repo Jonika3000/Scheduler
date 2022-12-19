@@ -31,7 +31,7 @@ namespace Scheduler
             LoadData();
             CreateListToday();
             clearEventsOverdue();
-            Container.Navigate(new HomePage());
+            RButtonHome.IsChecked = true;
             var timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromHours(1);
             timer.Tick += Timer_Tick;
@@ -216,6 +216,11 @@ namespace Scheduler
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
             Container.Navigate(new SettingsPage());
+        }
+
+        private void RButtonNothing_Checked(object sender, RoutedEventArgs e)
+        {
+            Container.Navigate(new Nothing());
         }
     }
 }
